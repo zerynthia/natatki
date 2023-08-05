@@ -1,14 +1,14 @@
 <template>
   <div class="absolute t-4 r-4 opacity-75">
     <button
-      class="bg-emerald-300 hover:bg-emerald-200 transform active:scale-95 text-white w-10 h-10 rounded-full text-xl mb-4 font-semibold"
-      :class="{ '!text-emerald-300 !bg-white': isOpen }"
+      class="border-teal-500 border-2 text-teal-500 bg-white transform active:scale-95 w-10 h-10 rounded-full text-xl mb-4 font-semibold"
+      :class="{ '!border-transparent': isClose }"
       @click="menuToggle"
     >
       ☰
     </button>
 
-    <nav class="flex flex-col gap-2" :class="{ hidden: isOpen }">
+    <nav class="flex flex-col gap-2 bg-white rounded-full py-2" :class="{ hidden: isClose }">
       <button class="w-10 h-10 text-2xl transform active:scale-95">🗒️</button>
       <button class="w-10 h-10 text-2xl transform active:scale-95">⭐️</button>
       <button class="w-10 h-10 text-2xl transform active:scale-95">👤</button>
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-const isOpen = ref(false);
+const isClose = ref(false);
 
-const menuToggle = () => (isOpen.value = !isOpen.value);
+const menuToggle = () => (isClose.value = !isClose.value);
 </script>

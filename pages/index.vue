@@ -4,9 +4,9 @@
       <TheNote
         v-for="note in notes"
         :key="note.id"
-        :title="note.title"
+        :title="note?.title"
         :content="note.content"
-        :date="new Date(note.meta.timestamp * 1000).toLocaleString()"
+        :date="getDateFromTimestamp(note?.meta?.timestamp)"
       />
     </div>
   </div>
@@ -15,6 +15,7 @@
 <script lang="ts" setup>
 import TheNote from "~/components/ui/TheNote.vue";
 import { RawNotesCollection } from "~/types/index";
+import { getDateFromTimestamp } from "~/utils/date";
 
 const notes: RawNotesCollection = {
   note1: {
@@ -170,6 +171,23 @@ const notes: RawNotesCollection = {
   note17: {
     id: "17",
     title: "Etiam bibendum",
+    meta: {
+      timestamp: 1643078400, // January 25, 2022 00:00:00 UTC
+      author: "John Doe",
+    },
+    content: "Etiam bibendum dolor vel nunc malesuada, a lacinia magna laoreet",
+  },
+  note18: {
+    id: "17",
+    title: "Etiam bibendum",
+    content: "Etiam bibendum dolor vel nunc malesuada, a lacinia magna laoreet",
+  },
+  note19: {
+    id: "17",
+    content: "Etiam bibendum dolor vel nunc malesuada, a lacinia magna laoreet",
+  },
+  note20: {
+    id: "17",
     meta: {
       timestamp: 1643078400, // January 25, 2022 00:00:00 UTC
       author: "John Doe",
