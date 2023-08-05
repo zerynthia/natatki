@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-[70px] bg-teal-50 rounded-md p-5 grid gap-4">
+  <div class="min-h-[70px] rounded-md p-5 grid gap-4">
     <div v-if="date || title">
       <h3 v-if="title" class="text-2xl font-semibold">
         {{ title }}
@@ -10,9 +10,9 @@
     <p class="text-gray-600">{{ content }}</p>
 
     <div class="self-end flex gap-1">
-      <button class="w-8 h-8 text-xl transform active:scale-95">🖊️</button>
-      <button class="w-8 h-8 text-xl transform active:scale-95 grayscale">⭐️</button>
-      <button class="w-8 h-8 text-xl transform active:scale-95">💬</button>
+      <button class="w-8 h-8 text-xl transform active:scale-90">🖊️</button>
+      <button class="w-8 h-8 text-xl transform active:scale-90 grayscale">⭐️</button>
+      <button class="w-8 h-8 text-xl transform active:scale-90">💬</button>
     </div>
   </div>
 </template>
