@@ -12,6 +12,7 @@
       <button class="w-10 h-10 text-2xl transform active:scale-95">🗒️</button>
       <button class="w-10 h-10 text-2xl transform active:scale-95">⭐️</button>
       <button class="w-10 h-10 text-2xl transform active:scale-95">👤</button>
+      <button class="w-10 h-10 text-2xl transform active:scale-95">➕</button>
     </nav>
   </div>
 </template>
