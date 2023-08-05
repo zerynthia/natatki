@@ -10,14 +10,16 @@
     <p class="text-gray-600">{{ content }}</p>
 
     <div class="self-end flex gap-1">
-      <button class="w-8 h-8 text-xl transform active:scale-90">🖊️</button>
-      <button class="w-8 h-8 text-xl transform active:scale-90 grayscale">⭐️</button>
-      <button class="w-8 h-8 text-xl transform active:scale-90">💬</button>
+      <TheSmallButton>🖊️</TheSmallButton>
+      <TheSmallButton>⭐️</TheSmallButton>
+      <TheSmallButton>💬</TheSmallButton>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+import TheSmallButton from "~/components/ui/buttons/TheSmallButton.vue";
+
 defineProps<{
   title?: string;
   content: string;

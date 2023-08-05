@@ -9,15 +9,17 @@
     </button>
 
     <nav class="flex flex-col gap-2 bg-slate-50 rounded-full py-2" :class="{ hidden: isClose }">
-      <button class="w-10 h-10 text-2xl transform active:scale-90">🗒️</button>
-      <button class="w-10 h-10 text-2xl transform active:scale-90">⭐️</button>
-      <button class="w-10 h-10 text-2xl transform active:scale-90">👤</button>
-      <button class="w-10 h-10 text-2xl transform active:scale-90">➕</button>
+      <TheButton>🗒️</TheButton>
+      <TheButton>⭐️</TheButton>
+      <TheButton>👤</TheButton>
+      <TheButton>➕</TheButton>
     </nav>
   </div>
 </template>
 
 <script lang="ts" setup>
+import TheButton from "~/components/ui/buttons/TheButton.vue"
+
 const isClose = ref(false);
 
 const menuToggle = () => (isClose.value = !isClose.value);
