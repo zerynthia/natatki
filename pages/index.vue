@@ -1,5 +1,7 @@
 <template>
-  <div class="max-h-full w-fit m-auto overflow-auto">
+  <div
+    :class="`max-h-full w-fit m-auto overflow-auto scrollbar scrollbar-w-2 scrollbar-h-2 scrollbar-thumb-rounded-md scrollbar-thumb-${globalAccentColor} scrollbar-track-${globalBgColor}`"
+  >
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mr-8 max-w-[1100px]">
       <TheNote
         v-for="note in notes"
@@ -13,9 +15,12 @@
 </template>
 
 <script lang="ts" setup>
+import { useStyleStore } from "~/stores/style";
 import TheNote from "~/components/ui/TheNote.vue";
 import { RawNotesCollection } from "~/types/index";
 import { getDateFromTimestamp } from "~/utils/date";
+
+const { globalBgColor, globalAccentColor } = useStyleStore();
 
 const notes: RawNotesCollection = {
   note1: {
