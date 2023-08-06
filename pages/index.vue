@@ -1,6 +1,6 @@
 <template>
   <div class="max-h-full w-fit m-auto overflow-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mr-4 max-w-[1100px]">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mr-8 max-w-[1100px]">
       <TheNote
         v-for="note in notes"
         :key="note.id"

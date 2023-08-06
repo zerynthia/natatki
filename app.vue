@@ -1,6 +1,6 @@
 <template>
   <div class="w-screen h-screen overflow-hidden bg-slate-50">
-    <div class="max-w-[1400px] h-screen m-auto p-4 overflow-hidden">
+    <div class="max-w-[1400px] h-screen m-auto px-4 py-8 overflow-hidden">
       <TheMenu />
       <NuxtPage />
     </div>

@@ -11,7 +11,7 @@
 
     <div class="self-end flex gap-1">
       <TheSmallButton>🖊️</TheSmallButton>
-      <TheSmallButton>⭐️</TheSmallButton>
+      <TheSmallButton class="grayscale">⭐️</TheSmallButton>
       <TheSmallButton>💬</TheSmallButton>
     </div>
   </div>

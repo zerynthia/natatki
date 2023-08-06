@@ -1,8 +1,8 @@
 <template>
   <div class="absolute z-50 t-4 r-4 opacity-75">
     <button
-      class="transition-all border-slate-400 border-2 text-slate-400 bg-slate-50 transform active:scale-95 w-10 h-10 rounded-full text-xl mb-4 font-semibold"
-      :class="{ '!bg-slate-400 !text-slate-50': isClose }"
+      class="transition-all border-slate-300 border-2 text-slate-300 bg-slate-50 transform active:scale-95 w-10 h-10 rounded-full text-xl mb-4 font-semibold"
+      :class="{ '!bg-slate-300 !text-slate-50': isClose }"
       @click="menuToggle"
     >
       ☰
