@@ -18,6 +18,7 @@
   "dependencies": {
     "@nuxtjs/composition-api": "^0.33.1",
     "@pinia/nuxt": "^0.4.11",
+    "mongoose": "^7.4.2",
     "pinia": "^2.1.6"
   }
 }

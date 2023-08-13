@@ -1,5 +1,5 @@
 export type RawNote = {
-  id: string
+  _id: string
   title?: string
   meta?: {
     timestamp?: number

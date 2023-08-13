@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mr-8 max-w-[1100px]">
       <TheNote
         v-for="note in notes"
-        :key="note.id"
+        :key="note._id"
         :title="note?.title"
         :content="note.content"
         :date="getDateFromTimestamp(note?.meta?.timestamp)"
@@ -17,13 +17,13 @@
 <script lang="ts" setup>
 import { useStyleStore } from "~/stores/style";
 import TheNote from "~/components/ui/TheNote.vue";
-import { RawNotesCollection } from "~/types/index";
 import { getDateFromTimestamp } from "~/utils/date";
 
 const { globalBgColor, globalAccentColor } = useStyleStore();
 
 const { data: notes } = await useFetch("/api/notes");
 
+console.debug("Notes", notes.value);
 </script>
 
 <style scoped></style>
