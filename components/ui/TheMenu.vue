@@ -14,7 +14,7 @@
       <TheButton>🗒️</TheButton>
       <TheButton>⭐️</TheButton>
       <TheButton>👤</TheButton>
-      <TheButton>➕</TheButton>
+      <TheButton @click="$router.push(`/new`)">➕</TheButton>
     </nav>
   </div>
 </template>
