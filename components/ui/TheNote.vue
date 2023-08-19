@@ -10,7 +10,7 @@
     <p class="text-gray-600">{{ content }}</p>
 
     <div class="self-end flex gap-1">
-      <TheSmallButton>🖊️</TheSmallButton>
+      <TheSmallButton @click="$router.push(`/edit/${id}`)">🖊️</TheSmallButton>
       <TheSmallButton class="grayscale">⭐️</TheSmallButton>
       <TheSmallButton>💬</TheSmallButton>
     </div>
@@ -21,6 +21,7 @@
 import TheSmallButton from "~/components/ui/buttons/TheSmallButton.vue";
 
 defineProps<{
+  id: string;
   title?: string;
   content: string;
   date?: string;
