@@ -6,7 +6,7 @@
       type="text"
       :value="modelValue"
       :placeholder="placeholder"
-      @input="(event) => $emit('update:content', event.target.value)"
+      @input="(event) => $emit('update:modelValue', event.target.value)"
       maxlength="128"
     />
   </div>

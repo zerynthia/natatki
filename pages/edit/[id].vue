@@ -1,11 +1,11 @@
 <template>
   <div class="flex flex-col items-start gap-4 min-w-[1100px] h-[100%] pt-6">
-    <TheEditInput
+    <TheInput
       v-model="title"
       label="Title:"
       placeholder="The title of your note"
     />
-    <TheEditTextarea
+    <TheTextarea
       v-model="content"
       label="Content:"
       placeholder="Content of your note"
@@ -17,9 +17,9 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import TheEditInput from "~/components/ui/edit/TheEditInput.vue";
-import TheEditTextarea from "~/components/ui/edit/TheEditTextarea.vue";
-import TheEditButton from "~/components/ui/edit/TheEditButton.vue";
+import TheInput from "~/components/ui/forms/TheInput.vue";
+import TheTextarea from "~/components/ui/forms/TheTextarea.vue";
+import TheEditButton from "~/components/ui/buttons/TheEditButton.vue";
 import { useNotesStore } from "~/stores/notes";
 
 const route = useRoute();
