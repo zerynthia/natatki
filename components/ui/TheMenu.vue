@@ -11,6 +11,7 @@
       class="flex flex-col gap-2 bg-slate-50 rounded-full py-2"
       :class="{ hidden: !isOpenMenu }"
     >
+      <TheButton @click="$router.push(`/`)">🏠</TheButton>
       <!-- <TheButton>🗒️</TheButton>
       <TheButton>⭐️</TheButton>
       <TheButton>👤</TheButton> -->
@@ -32,11 +33,11 @@ const isOpenMenu = ref(false);
 // Dynamic Styles
 const dynamicStyleMenu = computed(() => {
   if (isOpenMenu.value) {
-    return `border-2 border-${globalAccentColor} text-${globalAccentColor}`
+    return `border-2 border-${globalAccentColor} text-${globalAccentColor}`;
   }
 
-  return `bg-${globalAccentColor} text-${globalBgColor}`
-})
+  return `bg-${globalAccentColor} text-${globalBgColor}`;
+});
 
 // Actions
 const menuToggle = () => (isOpenMenu.value = !isOpenMenu.value);
