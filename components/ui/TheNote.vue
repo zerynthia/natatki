@@ -7,13 +7,22 @@
       <p v-if="note?.meta?.timestamp" class="text-sm text-gray-400">
         {{ getDateFromTimestamp(note?.meta?.timestamp) }}
       </p>
-      <p v-if="note?.meta?.author" class="text-sm text-gray-400">{{ note?.meta?.author }}</p>
+      <p v-if="note?.meta?.author" class="text-sm text-gray-400">
+        {{ note?.meta?.author }}
+      </p>
+      <p v-if="note?.modifications?.freezeMode" class="text-sm">
+        {{ "❄️" }}
+      </p>
     </div>
 
     <p class="text-gray-600">{{ note?.content }}</p>
 
     <div class="self-end flex gap-1">
-      <TheSmallButton @click="$router.push(`/edit/${id}`)">🖊️</TheSmallButton>
+      <TheSmallButton
+        v-if="!note?.modifications?.freezeMode"
+        @click="$router.push(`/edit/${id}`)"
+        >🖊️</TheSmallButton
+      >
       <!-- <TheSmallButton class="grayscale">⭐️</TheSmallButton>
       <TheSmallButton>💬</TheSmallButton> -->
       <TheSmallButton @click="async () => await notesStore.deleteNoteById(id)"

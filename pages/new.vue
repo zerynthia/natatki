@@ -16,11 +16,21 @@
       placeholder="Content of your note"
     />
 
-    <TheButton
-      @click="async () => await notesStore.addNote({ title, author, content })"
-    >
-      💾
-    </TheButton>
+    <div>
+      <TheButton
+        @click="
+          async () => await notesStore.addNote({ title, author, content, freeze: isFreeze })
+        "
+      >
+        💾
+      </TheButton>
+      <TheButton
+        :class="isFreeze ? '' : 'grayscale'"
+        @click="isFreeze = !isFreeze"
+      >
+        ❄️
+      </TheButton>
+    </div>
   </div>
 </template>
 
@@ -36,4 +46,5 @@ const notesStore = useNotesStore();
 const title = ref("");
 const author = ref("");
 const content = ref("");
+const isFreeze = ref(false);
 </script>

@@ -53,10 +53,12 @@ export const useNotesStore = defineStore("notes", {
       title,
       author,
       content,
+      freeze,
     }: {
-      title: string;
-      author: string;
-      content: string;
+      title?: string;
+      author?: string;
+      content?: string;
+      freeze?: boolean
     }) {
       await $fetch("/api/notes", {
         method: "POST",
@@ -64,6 +66,7 @@ export const useNotesStore = defineStore("notes", {
           title,
           author,
           content,
+          freeze
         },
       }).then(async () => {
         await this.updateNotes();

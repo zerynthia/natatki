@@ -5,7 +5,10 @@ export type RawNote = {
     timestamp?: number
     author?: string
   }
-  content: string
+  content: string,
+  modifications: {
+    freezeMode: boolean
+  }
 }
 
 export type RawNotesCollection = {

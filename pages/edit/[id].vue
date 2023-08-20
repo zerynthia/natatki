@@ -48,6 +48,10 @@ import TheTextarea from "~/components/ui/forms/TheTextarea.vue";
 import TheButton from "~/components/ui/buttons/TheButton.vue";
 import { useNotesStore } from "~/stores/notes";
 
+definePageMeta({
+    middleware: 'note'
+})
+
 const route = useRoute();
 const notesStore = useNotesStore();
 

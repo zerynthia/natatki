@@ -12,6 +12,12 @@ const NoteSchema = new Schema({
     type: String,
     required: true,
   },
+  modifications: {
+    freezeMode: {
+      type: Boolean,
+      required: true,
+    },
+  },
 });
 
 export const Note = model("Note", NoteSchema);
