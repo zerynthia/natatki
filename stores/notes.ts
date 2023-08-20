@@ -49,11 +49,20 @@ export const useNotesStore = defineStore("notes", {
       });
     },
 
-    async addNote({ title, content }: { title: string; content: string }) {
+    async addNote({
+      title,
+      author,
+      content,
+    }: {
+      title: string;
+      author: string;
+      content: string;
+    }) {
       await $fetch("/api/notes", {
         method: "POST",
         body: {
           title,
+          author,
           content,
         },
       }).then(async () => {

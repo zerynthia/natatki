@@ -28,7 +28,7 @@ import { useStyleStore } from "~/stores/style";
 const { globalBgColor, globalAccentColor } = useStyleStore();
 
 // State variables
-const isOpenMenu = ref(false);
+const isOpenMenu = ref(true);
 
 // Dynamic Styles
 const dynamicStyleMenu = computed(() => {
