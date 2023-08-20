@@ -11,7 +11,7 @@
       placeholder="Content of your note"
     />
 
-    <TheEditButton label="Save" @click="addNotes" />
+    <TheEditButton label="Save" @click="addNote" />
   </div>
 </template>
 
@@ -21,8 +21,8 @@ import TheInput from "~/components/ui/forms/TheInput.vue";
 import TheTextarea from "~/components/ui/forms/TheTextarea.vue";
 import TheEditButton from "~/components/ui/buttons/TheEditButton.vue";
 import { useNotesStore } from "~/stores/notes";
+import { RawNote } from "types";
 
-const route = useRoute();
 const notesStore = useNotesStore();
 
 const title = ref("");
@@ -33,7 +33,7 @@ const updateStoreNotes = async () => {
   notesStore.notes = notes as unknown as RawNote[];
 };
 
-const addNotes = async () => {
+const addNote = async () => {
   await useFetch("/api/notes", {
     method: "POST",
     body: {

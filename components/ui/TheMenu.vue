@@ -11,9 +11,9 @@
       class="flex flex-col gap-2 bg-slate-50 rounded-full py-2"
       :class="{ hidden: !isOpenMenu }"
     >
-      <TheButton>🗒️</TheButton>
+      <!-- <TheButton>🗒️</TheButton>
       <TheButton>⭐️</TheButton>
-      <TheButton>👤</TheButton>
+      <TheButton>👤</TheButton> -->
       <TheButton @click="$router.push(`/new`)">➕</TheButton>
     </nav>
   </div>

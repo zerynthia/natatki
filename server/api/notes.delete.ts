@@ -6,11 +6,7 @@ export default defineEventHandler(async (event) => {
   const BD_URL = `mongodb://localhost:32768/${DB_NAME}`;
   mongoose.connect(BD_URL);
 
-  const { title, content } = await readBody(event);
-
-  return await Note.create({
-    title,
-    content,
-    meta: { timestamp: Date.now() / 1000, author: "John Doe" },
-  });
+  const { id } = await readBody(event);
+  
+  return await Note.findByIdAndDelete(id);
 });
