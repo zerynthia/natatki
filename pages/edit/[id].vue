@@ -5,22 +5,39 @@
       label="Title:"
       placeholder="The title of your note"
     />
+    <TheInput
+      v-model="author"
+      label="Author:"
+      placeholder="The author of your note"
+    />
     <TheTextarea
       v-model="content"
       label="Content:"
       placeholder="Content of your note"
     />
 
-    <TheEditButton
-      label="Save"
-      @click="
-        async () =>
-          await notesStore.editNoteById($route.params.id, {
-            title,
-            content,
-          })
-      "
-    />
+    <div class="flex gap-2 items-center">
+      <TheButton
+        @click="
+          async () =>
+            await notesStore.editNoteById($route.params.id, {
+              title,
+              author,
+              content,
+            })
+        "
+        >💾</TheButton
+      >
+      <TheButton
+        @click="
+          async () => {
+            await notesStore.deleteNoteById($route.params.id);
+            await $router.push(`/`);
+          }
+        "
+        >🗑️</TheButton
+      >
+    </div>
   </div>
 </template>
 
@@ -28,13 +45,14 @@
 import { ref } from "vue";
 import TheInput from "~/components/ui/forms/TheInput.vue";
 import TheTextarea from "~/components/ui/forms/TheTextarea.vue";
-import TheEditButton from "~/components/ui/buttons/TheEditButton.vue";
+import TheButton from "~/components/ui/buttons/TheButton.vue";
 import { useNotesStore } from "~/stores/notes";
 
 const route = useRoute();
 const notesStore = useNotesStore();
 
 const note = notesStore.getNoteById(route.params.id);
-const title = ref(note.title);
-const content = ref(note.content);
+const title = ref(note?.title ?? "");
+const author = ref(note?.meta?.author ?? "");
+const content = ref(note?.content ?? "");
 </script>

@@ -1,9 +1,9 @@
 <template>
   <div :class="`w-screen h-screen overflow-hidden bg-${globalBgColor}`">
-    <div class="max-w-[1400px] h-screen m-auto px-4 py-8 overflow-hidden">
+    <div class="max-w-[1400px] w-full h-screen m-auto px-4 py-8 overflow-hidden">
       <TheMenu />
       <div
-        :class="`h-full w-fit m-auto overflow-auto scrollbar scrollbar-w-2 scrollbar-h-2 scrollbar-thumb-rounded-md scrollbar-thumb-${globalAccentColor} scrollbar-track-${globalBgColor}`"
+        :class="`h-full m-auto max-w-[1100px] overflow-auto scrollbar scrollbar-w-2 scrollbar-h-2 scrollbar-thumb-rounded-md scrollbar-thumb-${globalAccentColor} scrollbar-track-${globalBgColor}`"
       >
         <NuxtPage />
       </div>

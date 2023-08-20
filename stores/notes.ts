@@ -11,7 +11,7 @@ export const useNotesStore = defineStore("notes", {
       const notes = await $fetch("/api/notes");
       this.notes = notes as unknown as RawNote[];
     },
-    
+
     getNoteById(id: string) {
       return this.notes.find((note) => note._id === id);
     },
@@ -29,13 +29,18 @@ export const useNotesStore = defineStore("notes", {
 
     async editNoteById(
       id: string,
-      { title, content }: { title: string; content: string }
+      {
+        title,
+        content,
+        author,
+      }: { title: string; author: string; content: string }
     ) {
       await $fetch("/api/notes", {
         method: "PUT",
         body: {
           id,
           title,
+          author,
           content,
         },
       }).then(async () => {

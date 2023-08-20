@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mr-8 max-w-[1100px]">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mr-8">
     <TheNote
       v-for="note in notesStore.notes"
       :key="note._id"
