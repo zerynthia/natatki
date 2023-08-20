@@ -24,18 +24,11 @@ useHead({
 const notesStore = useNotesStore();
 const { globalBgColor, globalAccentColor } = useStyleStore();
 
-const updateNotes = async () => {
-  const { data: notes } = await useFetch("/api/notes");
-  notesStore.notes = notes as unknown as RawNote[];
-};
-
 onBeforeMount(async () => {
-  await updateNotes();
-  console.debug('1')
+  await notesStore.updateNotes();
 });
 
 onBeforeUpdate(async () => {
-  await updateNotes();
-  console.debug('1')
+  await notesStore.updateNotes();
 });
 </script>

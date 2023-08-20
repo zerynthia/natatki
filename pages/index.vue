@@ -18,5 +18,3 @@ import { useNotesStore } from "~/stores/notes";
 
 const notesStore = useNotesStore();
 </script>
-
-<style scoped></style>

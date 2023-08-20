@@ -13,39 +13,21 @@
       <TheSmallButton @click="$router.push(`/edit/${id}`)">🖊️</TheSmallButton>
       <!-- <TheSmallButton class="grayscale">⭐️</TheSmallButton>
       <TheSmallButton>💬</TheSmallButton> -->
-      <TheSmallButton @click="deleteNote">🗑️</TheSmallButton>
+      <TheSmallButton @click="async () => await notesStore.deleteNoteById(id)">🗑️</TheSmallButton>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { RawNote } from "types";
 import TheSmallButton from "~/components/ui/buttons/TheSmallButton.vue";
 import { useNotesStore } from "~/stores/notes";
 
 const notesStore = useNotesStore();
 
-const props = defineProps<{
+defineProps<{
   id: string;
   title?: string;
   content: string;
   date?: string;
 }>();
-
-const updateStoreNotes = async () => {
-  const { data: notes } = await useFetch("/api/notes");
-  notesStore.notes = notes as unknown as RawNote[];
-};
-
-const deleteNote = async () => {
-  await useFetch("/api/notes", {
-    method: "DELETE",
-    body: {
-      id: props.id,
-    },
-  }).then(async () => {
-    await updateStoreNotes();
-    await navigateTo("/");
-  });
-};
 </script>

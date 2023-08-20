@@ -15,6 +15,8 @@
 import { defineProps, defineEmits } from "vue";
 import { useStyleStore } from "~/stores/style";
 
+const { globalAccentColor, globalBgColor } = useStyleStore();
+
 defineProps<{
   modelValue: string;
   placeholder: string;

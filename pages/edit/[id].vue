@@ -11,7 +11,16 @@
       placeholder="Content of your note"
     />
 
-    <TheEditButton label="Save" @click="updateNotes" />
+    <TheEditButton
+      label="Save"
+      @click="
+        async () =>
+          await notesStore.editNoteById($route.params.id, {
+            title,
+            content,
+          })
+      "
+    />
   </div>
 </template>
 
@@ -28,23 +37,4 @@ const notesStore = useNotesStore();
 const note = notesStore.getNoteById(route.params.id);
 const title = ref(note.title);
 const content = ref(note.content);
-
-const updateStoreNotes = async () => {
-  const { data: notes } = await useFetch("/api/notes");
-  notesStore.notes = notes as unknown as RawNote[];
-};
-
-const updateNotes = async () => {
-  await useFetch("/api/notes", {
-    method: "put",
-    body: {
-      id: route.params.id,
-      title: title.value,
-      content: content.value,
-    },
-  }).then(async () => {
-    await updateStoreNotes();
-    await navigateTo("/");
-  });
-};
 </script>
